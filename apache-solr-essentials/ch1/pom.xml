@@ -15,7 +15,7 @@
 		<slf4j.version>1.6.6</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 		<mockito.version>1.9.5-rc1</mockito.version>
-		<solr.version>4.10.3</solr.version>
+		<solr.version>5.4.0</solr.version>
 	</properties>
 	<licenses>
 		<license>
@@ -90,7 +90,7 @@
 						<deployable>
 							<groupId>org.apache.solr</groupId>
 							<artifactId>solr</artifactId>
-							<type>war</type>
+							<type>jar</type>
 							<properties>
 								<context>/solr</context>
 							</properties>
@@ -118,12 +118,7 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.solr</groupId>
-			<artifactId>solr</artifactId>
-			<version>${solr.version}</version>
-			<type>war</type>
-		</dependency>
+	
 		<dependency>
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>
