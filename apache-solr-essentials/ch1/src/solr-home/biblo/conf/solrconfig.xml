@@ -2,7 +2,7 @@
 <!-- solr -->
 <config>
 	<luceneMatchVersion>LUCENE_48</luceneMatchVersion>
-	<dataDir>${solr.data.dir}/${solr.core.name}/data</dataDir>
+	<dataDir>/Users/rahulsinha/rubycode/apache-solr-essentials/ch1/src/solr-home/biblo/data</dataDir>
 	<directoryFactory name="DirectoryFactory" class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}" />
 	<codecFactory class="solr.SchemaCodecFactory" />
 	<schemaFactory class="ClassicIndexSchemaFactory" />
