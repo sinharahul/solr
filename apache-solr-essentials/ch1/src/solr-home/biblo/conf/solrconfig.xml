@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- solr -->
 <config>
 	<luceneMatchVersion>LUCENE_48</luceneMatchVersion>
 	<dataDir>${solr.data.dir}/${solr.core.name}/data</dataDir>

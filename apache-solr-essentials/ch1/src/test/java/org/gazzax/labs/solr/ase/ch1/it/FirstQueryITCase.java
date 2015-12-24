@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
@@ -30,7 +31,7 @@ import org.junit.Test;
  */
 public class FirstQueryITCase {
 	
-	private SolrServer client;
+	private HttpSolrClient client;
 
 	/**
 	 * Sample and simple scenario where we index one document and make a query.
@@ -103,7 +104,7 @@ public class FirstQueryITCase {
 	 */
 	@Before
 	public void setUp() {
-		client = new HttpSolrServer("http://127.0.0.1:8983/solr/biblo");
+		client = new HttpSolrClient("http://127.0.0.1:8983/solr/biblo");
 	}
 	
 	/**
