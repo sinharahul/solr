@@ -29,7 +29,7 @@
  http://wiki.apache.org/solr/SchemaXml
 -->
 
-<schema name="example" version="1.5">
+<schema name="parking" version="1.5">
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and 
        semantics.  It should not normally be changed by applications.
@@ -110,6 +110,14 @@
      tokens
    -->   
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_name" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_customer_name" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_date_start" type="date" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_date_end" type="date" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_amount" type="float" indexed="true" stored="true" required="true" multiValued="false" /> 
+   <field name="p_lot_amount_paid" type="boolean" indexed="true" stored="true" required="true" multiValued="false" /> 
+  
 
    <!-- Dynamic field definitions allow using convention over configuration
        for fields via the specification of patterns to match field names. 
