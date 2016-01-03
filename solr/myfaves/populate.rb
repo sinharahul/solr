@@ -3,29 +3,12 @@
 # the above shebang loads up the Rails environment giving us access to ActiveRecord.
 
 puts "Populating MyFaves relational database from data in MusicBrainz Solr..."
+rsolr = RSolr.connect :url => 'http://192.168.1.2:8983/solr'
+response = rsolr.get 'mbartists/select', :params => {:q => '*:*', :start => 0, :rows => 399000}
+puts response['response']['docs'].length 
 
-MBARTISTS_SOLR_URL = 'http://localhost:8983/solr/#/mbartists'
-BATCH_SIZE = 10
-MAX_RECORDS = 100000   # the maximum number of records to load, or nil for all
-
-solr_data = nil
-offset = 0
-
-rsolr = RSolr.connect :url => MBARTISTS_SOLR_URL
-
-# turn off acts_as_solr managing Artist lifecycle while we load data.
-#Artist.configuration[:offline] = true  
-
-while true
-  puts offset
-  response = rsolr.select({
-    :q => '*:*',
-    :rows=> BATCH_SIZE, 
-    :start => offset, 
-    :fl => ['*','score']
-  })
-  
-  break if response['response']['docs'].empty?  # at the end of the dataset available
+ 
+  #break if response['response']['docs'].empty?  # at the end of the dataset available
   
   response['response']['docs'].each do |doc|
     id = doc["id"]
@@ -43,10 +26,5 @@ while true
     end  
   end
   
-  offset = offset + BATCH_SIZE
   
-  unless MAX_RECORDS.nil?
-    break if offset > MAX_RECORDS
-  end
   
-end
