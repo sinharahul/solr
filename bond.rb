@@ -12,10 +12,10 @@ class Bond
     sum=0
     for i in 1..@timetomaturity-1
       sum+=amt/(denom ** i)
-#      puts "i=#{i} sum=#{sum}"
     end
     sum+=(@par+amt)/(denom ** @timetomaturity)
     puts "Bond market price is #{sum.round(3)}"
+    sum.round(3)
   end
   def pricea(arr)
       puts "Inside price a ,arr=#{arr}"
