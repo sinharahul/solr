@@ -56,6 +56,26 @@ class Bond
       
       
   end
+  def pblock
+      puts "Enter name of bond"
+      yield #@name=gets.chomp
+      puts "Enter par value"
+      @par=gets.to_i
+      puts "Enter coupan rate"
+      while @coupanrate=gets.to_f
+          if @coupanrate > 0
+              break
+          end
+          puts "Enter coupan rate"
+      end
+      
+      puts "Enter discount value"
+      @discountrate=gets.to_f
+      puts "Enter time to maturity"
+      @timetomaturity=gets.to_i
+      price
+      
+ end
 end
 a=["treasury 1 year",100.0,6.0,6.0,5]
 treasury=Bond.new
